@@ -171,7 +171,7 @@ This currently allows text fragments everywhere.
 
 ### `defaultSleep(retries)`
 
-Calculate miliseconds to sleep between tries.
+Calculate milliseconds to sleep between tries.
 
 The function is defined as `x ** 3 * 1000`,
 so the first sleep is `1 ** 3 * 1000` is 1s,
@@ -186,7 +186,7 @@ etc.
 
 ###### Returns
 
-Miliseconds to sleep (`number`).
+Milliseconds to sleep (`number`).
 
 ### `AnchorAllow`
 
@@ -233,9 +233,9 @@ Configuration (TypeScript type).
 * `resolveClobberPrefix` (`boolean`, default: `true`)
   — accept `user-content-` prefix in `id` on elements
 * `sleep` ([`Sleep`][api-sleep], default: [`defaultSleep`][api-default-sleep])
-  — calculate miliseconds to sleep between tries
+  — calculate milliseconds to sleep between tries
 * `timeout` (`number`, default: `3000`)
-  — timeout for HTTP request in miliseconds
+  — timeout for HTTP request in milliseconds
 * `userAgent` (`string`, default: `'Mozilla/5.0 … Safari/537.36'`,
   a modern Chrome on macOS user agent)
   — user agent
@@ -257,7 +257,7 @@ Result (TypeScript type).
 
 ### `Sleep`
 
-Calculate miliseconds to sleep between tries (TypeScript type).
+Calculate milliseconds to sleep between tries (TypeScript type).
 
 ###### Parameters
 
@@ -266,7 +266,7 @@ Calculate miliseconds to sleep between tries (TypeScript type).
 
 ###### Returns
 
-Miliseconds to sleep (`number`).
+Milliseconds to sleep (`number`).
 
 ## Errors
 
