@@ -47,10 +47,13 @@ test('deadOrAlive (real)', async function (t) {
   await t.test('should work for a real url w/ anchor', async function () {
     // To do: when released, use that.
     const result = await deadOrAlive(
-      'https://github.com/remarkjs/remark#readme'
+      'https://github.com/wooorm/dead-or-alive#readme'
     )
     assert.equal(result.status, 'alive')
-    assert.deepEqual(result.url, 'https://github.com/remarkjs/remark#readme')
+    assert.deepEqual(
+      result.url,
+      'https://github.com/wooorm/dead-or-alive#readme'
+    )
     assert.equal(result.messages.length, 0)
   })
 
@@ -59,14 +62,14 @@ test('deadOrAlive (real)', async function (t) {
     async function () {
       // To do: when released, use that.
       const result = await deadOrAlive(
-        'https://github.com/remarkjs/remark#readerme'
+        'https://github.com/wooorm/dead-or-alive#readerme'
       )
       assert.equal(result.status, 'dead')
       assert.equal(result.messages.length, 1)
       const message = result.messages[0]
       assert.equal(
         message.reason,
-        'Unexpected missing anchor element on `https://github.com/remarkjs/remark` for fragment `readerme`, remove if unneeded or refer to an existing element such as `readme`'
+        'Unexpected missing anchor element on `https://github.com/wooorm/dead-or-alive` for fragment `readerme`, remove if unneeded or refer to an existing element such as `readme`'
       )
       assert.equal(message.ruleId, 'missing-anchor')
       assert.equal(message.source, 'dead-or-alive')
