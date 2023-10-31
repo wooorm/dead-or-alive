@@ -398,21 +398,21 @@ See [How to Contribute to Open Source][open-source-guide-contribute].
 
 [api-sleep]: #sleep
 
-[badge-build-image]: https://github.com/wooorm/starry-night/workflows/main/badge.svg
+[badge-build-image]: https://github.com/wooorm/dead-or-alive/workflows/main/badge.svg
 
-[badge-build-url]: https://github.com/wooorm/starry-night/actions
+[badge-build-url]: https://github.com/wooorm/dead-or-alive/actions
 
-[badge-coverage-image]: https://img.shields.io/codecov/c/github/wooorm/starry-night.svg
+[badge-coverage-image]: https://img.shields.io/codecov/c/github/wooorm/dead-or-alive.svg
 
-[badge-coverage-url]: https://codecov.io/github/wooorm/starry-night
+[badge-coverage-url]: https://codecov.io/github/wooorm/dead-or-alive
 
-[badge-downloads-image]: https://img.shields.io/npm/dm/@wooorm/starry-night.svg
+[badge-downloads-image]: https://img.shields.io/npm/dm/dead-or-alive.svg
 
-[badge-downloads-url]: https://www.npmjs.com/package/@wooorm/starry-night
+[badge-downloads-url]: https://www.npmjs.com/package/dead-or-alive
 
-[badge-size-image]: https://img.shields.io/bundlejs/size/%40wooorm/starry-night?exports=createStarryNight
+[badge-size-image]: https://img.shields.io/bundlejs/size/dead-or-alive
 
-[badge-size-url]: https://bundlejs.com/?q=@wooorm/starry-night
+[badge-size-url]: https://bundlejs.com/?q=dead-or-alive
 
 [npm-install]: https://docs.npmjs.com/cli/install
 
