@@ -1,0 +1,7 @@
+coverage/
+node_modules/
+*.d.ts
+*.log
+*.map
+.DS_Store
+yarn.lock
