@@ -76,14 +76,14 @@ npm install dead-or-alive
 In Deno with [`esm.sh`][esm-sh]:
 
 ```js
-import {deadOrAlive} from 'https://esm.sh/dead-or-alive@0'
+import {deadOrAlive} from 'https://esm.sh/dead-or-alive@1'
 ```
 
 In browsers with [`esm.sh`][esm-sh]:
 
 ```html
 <script type="module">
-  import {deadOrAlive} from 'https://esm.sh/dead-or-alive@0?bundle'
+  import {deadOrAlive} from 'https://esm.sh/dead-or-alive@1?bundle'
 </script>
 ```
 
@@ -366,7 +366,7 @@ This projects is compatible with maintained versions of Node.js.
 When we cut a new major release,
 we drop support for unmaintained versions of Node.
 This means we try to keep the current release line,
-`dead-or-alive@0`,
+`dead-or-alive@1`,
 compatible with Node.js 18.
 
 ## Security
