@@ -190,7 +190,8 @@ Milliseconds to sleep (`number`).
 
 ### `AnchorAllow`
 
-Allow extra anchors ([`Array<AnchorAllow>`][api-anchor-allow]).
+Allow extra anchors (TypeScript type).
+
 The first item is a regular expression to match URLs (origin and path,
 so without search or hash),
 and the second item is a regular expression to match hashes (without `#`).
