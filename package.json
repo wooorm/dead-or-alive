@@ -33,8 +33,7 @@
   "files": [
     "lib/",
     "index.d.ts",
-    "index.js",
-    "index.map"
+    "index.js"
   ],
   "dependencies": {
     "@types/hast": "^3.0.0",
@@ -86,6 +85,31 @@
     "strict": true
   },
   "xo": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.d.ts"
+        ],
+        "rules": {
+          "@typescript-eslint/array-type": [
+            "error",
+            {
+              "default": "generic"
+            }
+          ],
+          "@typescript-eslint/ban-types": [
+            "error",
+            {
+              "extendDefaults": true
+            }
+          ],
+          "@typescript-eslint/consistent-type-definitions": [
+            "error",
+            "interface"
+          ]
+        }
+      }
+    ],
     "prettier": true,
     "rules": {
       "max-depth": "off",
