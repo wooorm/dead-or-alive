@@ -44,13 +44,13 @@
     "hast-util-select": "^6.0.0",
     "html-url-attributes": "^3.0.0",
     "levenshtein-edit-distance": "^3.0.0",
-    "undici": "^5.0.0",
+    "undici": "^6.0.0",
     "unist-util-visit": "^5.0.0",
     "vfile-message": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "c8": "^9.0.0",
+    "c8": "^10.0.0",
     "prettier": "^3.0.0",
     "remark-cli": "^12.0.0",
     "remark-preset-wooorm": "^10.0.0",
