@@ -3,6 +3,7 @@ node_modules/
 *.d.ts
 *.log
 *.map
+*.tsbuildinfo
 .DS_Store
 yarn.lock
 !/index.d.ts
