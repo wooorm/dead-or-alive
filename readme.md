@@ -296,7 +296,7 @@ But it looks dead.
 ### `lost-hash-with-meta-http-equiv`
 
 ```txt
-Unexpected hash in URL `$url` that redirects with `meta[http-equiv=refresh] to `$url` losing the hash, remove the hash from the original URL
+Unexpected hash in URL `$url` that redirects with `meta[http-equiv=refresh]` to `$url` losing the hash, remove the hash from the original URL
 ```
 
 This warning is used when a URL with an anchor gets an HTML redirect,

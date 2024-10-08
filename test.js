@@ -521,7 +521,7 @@ test('deadOrAlive (mocked)', async function (t) {
     const message = result.messages[0]
     assert.equal(
       message.reason,
-      'Unexpected hash in URL `https://example.com/#hi` that redirects with `meta[http-equiv=refresh] to `https://example.com/to/` losing the hash, remove the hash from the original URL'
+      'Unexpected hash in URL `https://example.com/#hi` that redirects with `meta[http-equiv=refresh]` to `https://example.com/to/` losing the hash, remove the hash from the original URL'
     )
     assert.equal(message.ruleId, 'lost-hash-with-meta-http-equiv')
     assert.equal(message.source, 'dead-or-alive')
