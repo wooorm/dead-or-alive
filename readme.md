@@ -249,6 +249,8 @@ Result (TypeScript type).
 
 * `messages` ([`Array<VFileMessage>`][github-vfile-message])
   — messages where the first is a fatal error when dead
+* `permanent` (`boolean` or `undefined`)
+  — whether all redirects were permanent
 * `status` (`'alive'` or `'dead'`)
   — status
 * `url` (`string` or `undefined`)

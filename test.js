@@ -23,21 +23,21 @@ test('deadOrAlive (real)', async function (t) {
   await t.test('should work for a real url', async function () {
     const result = await deadOrAlive('https://github.com')
     assert.equal(result.status, 'alive')
-    assert.deepEqual(result.url, 'https://github.com/')
+    assert.equal(result.url, 'https://github.com/')
     assert.equal(result.messages.length, 0)
   })
 
   await t.test('should work for a real `http` url', async function () {
     const result = await deadOrAlive('http://github.com')
     assert.equal(result.status, 'alive')
-    assert.deepEqual(result.url, 'https://github.com/')
+    assert.equal(result.url, 'https://github.com/')
     assert.equal(result.messages.length, 0)
   })
 
   await t.test('should work for a redirecting real url', async function () {
     const result = await deadOrAlive('https://mdn.io')
     assert.equal(result.status, 'alive')
-    assert.deepEqual(
+    assert.equal(
       result.url,
       'https://developer.mozilla.org/en-US/docs/Web/JavaScript'
     )
@@ -49,7 +49,7 @@ test('deadOrAlive (real)', async function (t) {
       'https://github.com/wooorm/dead-or-alive#dead-or-alive'
     )
     assert.equal(result.status, 'alive')
-    assert.deepEqual(
+    assert.equal(
       result.url,
       'https://github.com/wooorm/dead-or-alive#dead-or-alive'
     )
@@ -91,7 +91,8 @@ test('deadOrAlive (mocked)', async function (t) {
     await setGlobalDispatcher(globalDispatcher)
 
     assert.equal(result.status, 'alive')
-    assert.deepEqual(result.url, 'https://example.com/')
+    assert.equal(result.permanent, undefined)
+    assert.equal(result.url, 'https://example.com/')
     assert.equal(result.messages.length, 0)
   })
 
@@ -109,7 +110,7 @@ test('deadOrAlive (mocked)', async function (t) {
     await setGlobalDispatcher(globalDispatcher)
 
     assert.equal(result.status, 'alive')
-    assert.deepEqual(result.url, 'https://example.com/')
+    assert.equal(result.url, 'https://example.com/')
     assert.equal(result.messages.length, 0)
   })
 
@@ -169,7 +170,7 @@ test('deadOrAlive (mocked)', async function (t) {
     await setGlobalDispatcher(globalDispatcher)
 
     assert.equal(result.status, 'alive')
-    assert.deepEqual(result.url, 'https://example.com/')
+    assert.equal(result.url, 'https://example.com/')
     assert.equal(result.messages.length, 0)
   })
 
@@ -188,6 +189,7 @@ test('deadOrAlive (mocked)', async function (t) {
 
     assert.equal(result.status, 'dead')
     assert.equal(result.messages.length, 1)
+    assert.equal(result.permanent, undefined)
     const message = result.messages[0]
     assert.equal(
       message.reason,
@@ -212,6 +214,7 @@ test('deadOrAlive (mocked)', async function (t) {
 
     assert.equal(result.status, 'dead')
     assert.equal(result.messages.length, 1)
+    assert.equal(result.permanent, undefined)
     const message = result.messages[0]
     assert.equal(
       message.reason,
@@ -240,8 +243,9 @@ test('deadOrAlive (mocked)', async function (t) {
     await setGlobalDispatcher(globalDispatcher)
 
     assert.equal(result.status, 'alive')
-    assert.deepEqual(result.url, 'https://example.com/to')
+    assert.equal(result.url, 'https://example.com/to')
     assert.equal(result.messages.length, 0)
+    assert.equal(result.permanent, true)
   })
 
   await t.test('should work w/ a 302', async function () {
@@ -263,8 +267,9 @@ test('deadOrAlive (mocked)', async function (t) {
     await setGlobalDispatcher(globalDispatcher)
 
     assert.equal(result.status, 'alive')
-    assert.deepEqual(result.url, 'https://example.com/to')
+    assert.equal(result.url, 'https://example.com/to')
     assert.equal(result.messages.length, 0)
+    assert.equal(result.permanent, false)
   })
 
   await t.test('should work w/ 5 redirects (default)', async function () {
@@ -293,8 +298,9 @@ test('deadOrAlive (mocked)', async function (t) {
     await setGlobalDispatcher(globalDispatcher)
 
     assert.equal(result.status, 'alive')
-    assert.deepEqual(result.url, 'https://example.com/' + max)
+    assert.equal(result.url, 'https://example.com/' + max)
     assert.equal(result.messages.length, 0)
+    assert.equal(result.permanent, true)
   })
 
   await t.test('should fail w/ 6 redirects (default)', async function () {
@@ -324,6 +330,7 @@ test('deadOrAlive (mocked)', async function (t) {
 
     assert.equal(result.status, 'dead')
     assert.equal(result.messages.length, 1)
+    assert.equal(result.permanent, true)
     const message = result.messages[0]
     assert.equal(
       message.reason,
@@ -362,6 +369,7 @@ test('deadOrAlive (mocked)', async function (t) {
 
     assert.equal(result.status, 'dead')
     assert.equal(result.messages.length, 1)
+    assert.equal(result.permanent, true)
     const message = result.messages[0]
     assert.equal(
       message.reason,
@@ -390,7 +398,8 @@ test('deadOrAlive (mocked)', async function (t) {
     await setGlobalDispatcher(globalDispatcher)
 
     assert.equal(result.status, 'alive')
-    assert.deepEqual(result.url, 'https://example.com/to')
+    assert.equal(result.url, 'https://example.com/to')
+    assert.equal(result.permanent, true)
     assert.equal(result.messages.length, 1)
     const message = result.messages[0]
     assert.equal(
@@ -424,7 +433,7 @@ test('deadOrAlive (mocked)', async function (t) {
     await setGlobalDispatcher(globalDispatcher)
 
     assert.equal(result.status, 'alive')
-    assert.deepEqual(result.url, 'https://example.com/i/was/redirected/')
+    assert.equal(result.url, 'https://example.com/i/was/redirected/')
     assert.equal(result.messages.length, 0)
   })
 
@@ -452,7 +461,7 @@ test('deadOrAlive (mocked)', async function (t) {
       await setGlobalDispatcher(globalDispatcher)
 
       assert.equal(result.status, 'alive')
-      assert.deepEqual(result.url, 'https://example.com/')
+      assert.equal(result.url, 'https://example.com/')
       assert.equal(result.messages.length, 0)
     }
   )
@@ -479,7 +488,7 @@ test('deadOrAlive (mocked)', async function (t) {
       await setGlobalDispatcher(globalDispatcher)
 
       assert.equal(result.status, 'alive')
-      assert.deepEqual(result.url, 'https://example.com/')
+      assert.equal(result.url, 'https://example.com/')
       assert.equal(result.messages.length, 0)
     }
   )
@@ -507,7 +516,7 @@ test('deadOrAlive (mocked)', async function (t) {
     await setGlobalDispatcher(globalDispatcher)
 
     assert.equal(result.status, 'alive')
-    assert.deepEqual(result.url, 'https://example.com/to/')
+    assert.equal(result.url, 'https://example.com/to/')
     assert.equal(result.messages.length, 1)
     const message = result.messages[0]
     assert.equal(
@@ -536,7 +545,7 @@ test('deadOrAlive (mocked)', async function (t) {
     await setGlobalDispatcher(globalDispatcher)
 
     assert.equal(result.status, 'alive')
-    assert.deepEqual(result.url, 'https://example.com/#hi')
+    assert.equal(result.url, 'https://example.com/#hi')
     assert.equal(result.messages.length, 0)
   })
 
@@ -562,7 +571,7 @@ test('deadOrAlive (mocked)', async function (t) {
       await setGlobalDispatcher(globalDispatcher)
 
       assert.equal(result.status, 'alive')
-      assert.deepEqual(result.url, 'https://example.com/#hi')
+      assert.equal(result.url, 'https://example.com/#hi')
       assert.equal(result.messages.length, 0)
     }
   )
@@ -585,7 +594,7 @@ test('deadOrAlive (mocked)', async function (t) {
     await setGlobalDispatcher(globalDispatcher)
 
     assert.equal(result.status, 'alive')
-    assert.deepEqual(result.url, 'https://example.com/#hi')
+    assert.equal(result.url, 'https://example.com/#hi')
     assert.equal(result.messages.length, 0)
   })
 
@@ -611,7 +620,7 @@ test('deadOrAlive (mocked)', async function (t) {
       await setGlobalDispatcher(globalDispatcher)
 
       assert.equal(result.status, 'alive')
-      assert.deepEqual(result.url, 'https://example.com/#hi')
+      assert.equal(result.url, 'https://example.com/#hi')
       assert.equal(result.messages.length, 0)
     }
   )
@@ -830,7 +839,7 @@ test('deadOrAlive (mocked)', async function (t) {
       assert.equal(result.status, 'alive')
       assert.equal(result.url, 'https://example.com/')
       assert.equal(result.messages.length, 0)
-      assert.deepEqual(result.urls, undefined)
+      assert.equal(result.urls, undefined)
     }
   )
 
@@ -856,7 +865,7 @@ test('deadOrAlive (mocked)', async function (t) {
     assert.equal(result.status, 'alive')
     assert.equal(result.url, 'https://example.com/')
     assert.equal(result.messages.length, 0)
-    assert.deepEqual(result.urls, undefined)
+    assert.equal(result.urls, undefined)
   })
 
   await t.test('should be fast if retries are not needed', async function () {
@@ -874,7 +883,7 @@ test('deadOrAlive (mocked)', async function (t) {
 
     assert.equal(result.status, 'dead')
     assert.equal(result.url, undefined)
-    assert.deepEqual(result.urls, undefined)
+    assert.equal(result.urls, undefined)
     const message = result.messages[0]
     assert.equal(
       message.reason,
@@ -901,7 +910,7 @@ test('deadOrAlive (mocked)', async function (t) {
 
     assert.equal(result.status, 'dead')
     assert.equal(result.url, undefined)
-    assert.deepEqual(result.urls, undefined)
+    assert.equal(result.urls, undefined)
     const message = result.messages[0]
     assert.equal(
       message.reason,

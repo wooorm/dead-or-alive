@@ -72,19 +72,23 @@ export interface Options {
  */
 interface ResultAlive {
   /**
-   *   Messages where the first is a fatal error when dead.
+   * Messages where the first is a fatal error when dead.
    */
   messages: Array<VFileMessage>
   /**
-   *   Status.
+   * Whether all redirects were permanent.
+   */
+  permanent: boolean | undefined
+  /**
+   * Status.
    */
   status: 'alive'
   /**
-   *   Final URL if alive.
+   * Final URL if alive.
    */
   url: string
   /**
-   *   Further URLs if `findUrls: true` and the resource was HTML.
+   * Further URLs if `findUrls: true` and the resource was HTML.
    */
   urls: Set<string> | undefined
 }
@@ -94,19 +98,23 @@ interface ResultAlive {
  */
 interface ResultDead {
   /**
-   *   Messages where the first is a fatal error when dead.
+   * Messages where the first is a fatal error when dead.
    */
   messages: [VFileMessage, ...Array<VFileMessage>]
   /**
-   *   Status.
+   * Whether all redirects were permanent.
+   */
+  permanent: boolean | undefined
+  /**
+   * Status.
    */
   status: 'dead'
   /**
-   *   Final URL if alive.
+   * Final URL if alive.
    */
   url: undefined
   /**
-   *   Further URLs if `findUrls: true` and the resource was HTML.
+   * Further URLs if `findUrls: true` and the resource was HTML.
    */
   urls: Set<string> | undefined
 }
