@@ -98,7 +98,7 @@ console.log(await deadOrAlive('https://github.com'))
 
 …yields:
 
-```txt
+```text
 {
   messages: [
     [1:1: Unexpected error fetching `https://something-that-is-dead.com/`] { … }
@@ -275,7 +275,7 @@ Milliseconds to sleep (`number`).
 
 ### `dead`
 
-```txt
+```text
 Unexpected not ok response `$status` (`$statusText`) on `$url`
 ```
 
@@ -283,7 +283,7 @@ This error is used when a URL looks temporarily or permenantly dead.
 
 ### `fetch`
 
-```txt
+```text
 Unexpected error fetching `$url`
 ```
 
@@ -295,7 +295,7 @@ But it looks dead.
 
 ### `lost-hash-with-meta-http-equiv`
 
-```txt
+```text
 Unexpected hash in URL `$url` that redirects with `meta[http-equiv=refresh]` to `$url` losing the hash, remove the hash from the original URL
 ```
 
@@ -306,7 +306,7 @@ Or find a similar section on the final URL.
 
 ### `lost-hash-with-non-html`
 
-```txt
+```text
 Unexpected hash in URL `$url` to non-html ($contentType) losing the hash, remove the hash from the original URL
 ```
 
@@ -316,7 +316,7 @@ Perhaps you can remove the hash from the original URL?
 
 ### `lost-hash-with-redirect`
 
-```txt
+```text
 Unexpected hash in URL `$url` that redirects to `$url` losing the hash, remove the hash from the original URL
 ```
 
@@ -327,7 +327,7 @@ Or find a similar section on the final URL.
 
 ### `max-redirect`
 
-```txt
+```text
 Unexpected redirect to `$url`, too many redirects
 ```
 
@@ -338,7 +338,7 @@ to something that works.
 
 ### `missing-anchor`
 
-```txt
+```text
 Unexpected missing anchor element on `$url` for fragment `$fragment`, remove if unneeded or refer to an existing element
 ```
 
@@ -353,7 +353,7 @@ existing element.
 
 ### `shared-declarative-refresh`
 
-```txt
+```text
 Unexpected invalid URL `$url` in `content` on `meta[http-equiv=refresh] relative to `$url`
 ```
 
@@ -417,8 +417,6 @@ See [How to Contribute to Open Source][open-source-guide-contribute].
 
 [badge-size-url]: https://bundlejs.com/?q=dead-or-alive
 
-[npm-install]: https://docs.npmjs.com/cli/install
-
 [esm-sh]: https://esm.sh
 
 [file-license]: license
@@ -430,6 +428,8 @@ See [How to Contribute to Open Source][open-source-guide-contribute].
 [github-remark-lint-no-dead-urls]: https://github.com/remarkjs/remark-lint-no-dead-urls
 
 [github-vfile-message]: https://github.com/vfile/vfile-message
+
+[npm-install]: https://docs.npmjs.com/cli/install
 
 [open-source-guide-contribute]: https://opensource.guide/how-to-contribute/
 
